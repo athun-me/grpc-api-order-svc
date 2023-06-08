@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net"
 
@@ -37,6 +38,7 @@ func main() {
 		ProductSvc: productSvc,
 	}
 
+	fmt.Println("Order Svc on", c.Port)
 	grpcServer := grpc.NewServer()
 
 	pb.RegisterOrderServiceServer(grpcServer, &s)
